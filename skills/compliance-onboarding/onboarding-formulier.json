@@ -1,0 +1,388 @@
+[
+ {
+  "kader": "1",
+  "titel": "Organisatie en rol",
+  "vragen": [
+   {
+    "sleutel": "medewerkers",
+    "vraag": "Hoeveel mensen werken er, inclusief ingehuurden?",
+    "type": "enum",
+    "opties": [
+     "1-9",
+     "10-49",
+     "50-249",
+     "250 of meer"
+    ],
+    "verplicht": false
+   },
+   {
+    "sleutel": "omzet_balans",
+    "vraag": "Is de jaaromzet of het balanstotaal hoger dan € 10 miljoen?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "klanten",
+    "vraag": "Wie zijn je klanten?",
+    "type": "enum",
+    "opties": [
+     "bedrijven",
+     "consumenten",
+     "beide"
+    ],
+    "verplicht": false
+   },
+   {
+    "sleutel": "rol",
+    "vraag": "Wat is je rol bij persoonsgegevens?",
+    "type": "enum",
+    "opties": [
+     "verwerkingsverantwoordelijke",
+     "verwerker",
+     "beide"
+    ],
+    "hulp": "Verwerkingsverantwoordelijke: je bepaalt zelf waarvoor en hoe. Verwerker: je verwerkt in opdracht van klanten.",
+    "verplicht": false
+   }
+  ]
+ },
+ {
+  "kader": "2",
+  "titel": "Persoonsgegevens",
+  "vragen": [
+   {
+    "sleutel": "gegevens_klanten",
+    "vraag": "Verwerk je persoonsgegevens van klanten?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "gegevens_medewerkers",
+    "vraag": "Verwerk je persoonsgegevens van medewerkers?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "gegevens_sollicitanten",
+    "vraag": "Verwerk je persoonsgegevens van sollicitanten?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "gegevens_websitebezoekers",
+    "vraag": "Verwerk je persoonsgegevens van websitebezoekers?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "bijzondere_gegevens",
+    "vraag": "Gebruik je bijzondere gegevens (gezondheid of ziekmelding, geloof, afkomst, biometrisch, strafrechtelijk)?",
+    "type": "boolean",
+    "ask_if": "facts.gegevens_klanten == true or facts.gegevens_medewerkers == true or facts.gegevens_sollicitanten == true or facts.gegevens_websitebezoekers == true or facts.gegevens_klanten == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "camera",
+    "vraag": "Heb je camera's (beveiliging, werkvloer, slim)?",
+    "type": "boolean",
+    "ask_if": "facts.gegevens_klanten == true or facts.gegevens_medewerkers == true or facts.gegevens_sollicitanten == true or facts.gegevens_websitebezoekers == true or facts.gegevens_klanten == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "profilering_besluiten",
+    "vraag": "Worden besluiten of profielen over mensen grotendeels automatisch bepaald?",
+    "type": "boolean",
+    "ask_if": "facts.gegevens_klanten == true or facts.gegevens_medewerkers == true or facts.gegevens_sollicitanten == true or facts.gegevens_websitebezoekers == true or facts.gegevens_klanten == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "omvang",
+    "vraag": "Om hoeveel personen gaat het ongeveer?",
+    "type": "enum",
+    "opties": [
+     "minder dan 1.000",
+     "1.000-100.000",
+     "meer dan 100.000"
+    ],
+    "ask_if": "facts.gegevens_klanten == true or facts.gegevens_medewerkers == true or facts.gegevens_sollicitanten == true or facts.gegevens_websitebezoekers == true or facts.gegevens_klanten == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "verwerkers",
+    "vraag": "Verwerken leveranciers persoonsgegevens voor jou (cloud, e-mail, boekhouding, salaris, CRM)?",
+    "type": "boolean",
+    "ask_if": "facts.gegevens_klanten == true or facts.gegevens_medewerkers == true or facts.gegevens_sollicitanten == true or facts.gegevens_websitebezoekers == true or facts.gegevens_klanten == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "doorgifte",
+    "vraag": "Gaan gegevens naar of zijn ze toegankelijk vanuit landen buiten de EER (bijvoorbeeld een VS-clouddienst)?",
+    "type": "boolean",
+    "ask_if": "facts.gegevens_klanten == true or facts.gegevens_medewerkers == true or facts.gegevens_sollicitanten == true or facts.gegevens_websitebezoekers == true or facts.gegevens_klanten == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "delen",
+    "vraag": "Deel je gegevens met organisaties die ze voor hun eigen doel gebruiken?",
+    "type": "boolean",
+    "ask_if": "facts.gegevens_klanten == true or facts.gegevens_medewerkers == true or facts.gegevens_sollicitanten == true or facts.gegevens_websitebezoekers == true or facts.gegevens_klanten == null",
+    "verplicht": false
+   }
+  ]
+ },
+ {
+  "kader": "3",
+  "titel": "Website, marketing en overeenkomsten",
+  "vragen": [
+   {
+    "sleutel": "webshop",
+    "vraag": "Heb je een webshop?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "platform",
+    "vraag": "Heb je een app of platform (ook waar gebruikers zelf inhoud plaatsen)?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "website_info",
+    "vraag": "Heb je alleen een informatieve website?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "trackers",
+    "vraag": "Gebruik je cookies of trackers (ook analytics, advertenties, chatwidget)?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "marketing",
+    "vraag": "Stuur je een nieuwsbrief of commerciële berichten, of doe je koude acquisitie?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "verkoop",
+    "vraag": "Verkoop je producten of diensten (met of zonder eigen algemene voorwaarden)?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "ov_saas",
+    "vraag": "Lever je SaaS of cloud?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "ov_licentie",
+    "vraag": "Licentieer je software?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "ov_bouwen",
+    "vraag": "Bouw je software, of laat je die bouwen?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "ov_sla",
+    "vraag": "Sluit je regelmatig een service level agreement (beschikbaarheid en support)?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "ov_nda",
+    "vraag": "Sluit je regelmatig geheimhoudingsafspraken (NDA)?",
+    "type": "boolean",
+    "verplicht": false
+   }
+  ]
+ },
+ {
+  "kader": "4",
+  "titel": "AI, cyber en beveiliging",
+  "vragen": [
+   {
+    "sleutel": "ai_gebruik",
+    "vraag": "Gebruiken medewerkers AI-tools (chatbots, schrijf-, code-, vertaaltools)?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "ai_eigen",
+    "vraag": "Bouw of lever je AI, of bouw je AI in je product?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "ai_inkoop",
+    "vraag": "Koop je AI-systemen of -onderdelen in?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "ai_hoog_risico",
+    "vraag": "Gebruik je AI voor werving of beoordeling van personeel, kredietwaardigheid, toegang tot diensten, biometrische identificatie, veiligheidsonderdelen of kritieke infrastructuur?",
+    "type": "boolean",
+    "ask_if": "facts.ai_gebruik == true or facts.ai_eigen == true or facts.ai_inkoop == true or facts.ai_gebruik == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "nis2_sector",
+    "vraag": "Werkt de organisatie in energie, vervoer, bankwezen, zorg, water, digitale infrastructuur, ICT-dienstverlening, overheid, post, afval, chemie, voedsel, industrie, digitale platforms of onderzoek?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "beveiligingsbeleid",
+    "vraag": "Is er een schriftelijk beveiligingsbeleid?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "tweestap_backups",
+    "vraag": "Is er tweestapsverificatie en zijn back-ups getest?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "datalek_proces",
+    "vraag": "Is er een vaste datalekprocedure (wie meldt, wie beslist, register)?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "fg",
+    "vraag": "Is er een FG of een vast aanspreekpunt privacy?",
+    "type": "boolean",
+    "verplicht": false
+   }
+  ]
+ },
+ {
+  "kader": "5",
+  "titel": "Samenwerking en bestaande documenten",
+  "vragen": [
+   {
+    "sleutel": "subverwerkers",
+    "vraag": "Schakel je zelf leveranciers in voor gegevens van klanten?",
+    "type": "boolean",
+    "ask_if": "facts.rol == \"verwerker\" or facts.rol == \"beide\" or facts.rol == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "gezamenlijk",
+    "vraag": "Bepaal je samen met een andere organisatie waarvoor en hoe gegevens worden gebruikt?",
+    "type": "boolean",
+    "ask_if": "facts.gegevens_klanten == true or facts.gegevens_medewerkers == true or facts.gegevens_sollicitanten == true or facts.gegevens_websitebezoekers == true or facts.gegevens_klanten == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "doc_privacyverklaring",
+    "vraag": "Bestaat er al een privacyverklaring?",
+    "type": "boolean",
+    "ask_if": "facts.gegevens_klanten == true or facts.gegevens_medewerkers == true or facts.gegevens_sollicitanten == true or facts.gegevens_websitebezoekers == true or facts.gegevens_klanten == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "doc_verwerkersovereenkomst",
+    "vraag": "Bestaan er al verwerkersovereenkomst(en)?",
+    "type": "boolean",
+    "ask_if": "facts.gegevens_klanten == true or facts.gegevens_medewerkers == true or facts.gegevens_sollicitanten == true or facts.gegevens_websitebezoekers == true or facts.gegevens_klanten == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "doc_register",
+    "vraag": "Bestaat er al een verwerkingsregister?",
+    "type": "boolean",
+    "ask_if": "facts.gegevens_klanten == true or facts.gegevens_medewerkers == true or facts.gegevens_sollicitanten == true or facts.gegevens_websitebezoekers == true or facts.gegevens_klanten == null",
+    "verplicht": false
+   },
+   {
+    "sleutel": "doc_beveiligingsbeleid",
+    "vraag": "Bestaat er al een beveiligings- of datalekbeleid?",
+    "type": "boolean",
+    "verplicht": false
+   },
+   {
+    "sleutel": "bestaand_bijgewerkt",
+    "vraag": "Wanneer zijn die documenten voor het laatst bijgewerkt?",
+    "type": "enum",
+    "opties": [
+     "dit jaar",
+     "vorig jaar",
+     "langer geleden"
+    ],
+    "ask_if": "facts.doc_privacyverklaring == true or facts.doc_verwerkersovereenkomst == true or facts.doc_register == true or facts.doc_beveiligingsbeleid == true",
+    "verplicht": false
+   }
+  ]
+ },
+ {
+  "kader": "6",
+  "titel": "Huisstijl",
+  "vragen": [
+   {
+    "sleutel": "h_rechtsvorm",
+    "vraag": "Wat is de rechtsvorm?",
+    "type": "enum",
+    "opties": [
+     "eenmanszaak of eigen project",
+     "BV of NV",
+     "stichting of vereniging",
+     "VOF, maatschap of anders"
+    ],
+    "hulp": "Typ de naam met rechtsvorm in de opmerking als je die wilt vastleggen.",
+    "verplicht": false
+   },
+   {
+    "sleutel": "h_toon",
+    "vraag": "Hoe spreek je lezers aan en welke toon?",
+    "type": "enum",
+    "opties": [
+     "U, formeel",
+     "U, zakelijk",
+     "Je/jij, toegankelijk",
+     "geen voorkeur"
+    ],
+    "verplicht": false
+   },
+   {
+    "sleutel": "h_partijnamen",
+    "vraag": "Welke partijnamen gebruik je in overeenkomsten?",
+    "type": "enum",
+    "opties": [
+     "Opdrachtgever/Opdrachtnemer",
+     "Klant/Leverancier",
+     "Verwerkingsverantwoordelijke/Verwerker",
+     "geen voorkeur"
+    ],
+    "verplicht": false
+   },
+   {
+    "sleutel": "h_nummering",
+    "vraag": "Welke nummering?",
+    "type": "enum",
+    "opties": [
+     "1.1.1",
+     "Artikel 1, 2, ..."
+    ],
+    "verplicht": false
+   },
+   {
+    "sleutel": "h_bestandsvorm",
+    "vraag": "Welke bestandsvorm?",
+    "type": "enum",
+    "opties": [
+     "Word",
+     "PDF"
+    ],
+    "verplicht": false
+   }
+  ]
+ }
+]
