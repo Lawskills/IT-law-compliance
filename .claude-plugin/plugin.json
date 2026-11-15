@@ -1,0 +1,24 @@
+{
+  "name": "lawskills",
+  "description": "Nederlandse en Europese compliance met Claude: 24 opstel-skills, 16 toetsen en een werkruimte (onboarding, dashboard, register, bronnenchat, update) voor AVG, AI-verordening, cookies, cyberbeveiliging en zakelijke contracten, met vaste rekenregels per kader.",
+  "version": "1.1.0",
+  "author": {
+    "name": "Akram al Khafaji"
+  },
+  "homepage": "https://github.com/Lawskills/IT-law-compliance",
+  "repository": "https://github.com/Lawskills/IT-law-compliance",
+  "license": "CC-BY-4.0 AND MIT",
+  "keywords": [
+    "AI Act",
+    "AVG",
+    "Cyberbeveiligingswet",
+    "Data Act",
+    "Dutch law",
+    "GDPR",
+    "NIS2",
+    "compliance",
+    "contracts",
+    "cookies",
+    "privacy"
+  ]
+}

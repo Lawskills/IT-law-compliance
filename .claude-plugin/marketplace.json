@@ -1,0 +1,13 @@
+{
+  "name": "it-law-compliance",
+  "owner": {
+    "name": "Akram al Khafaji"
+  },
+  "plugins": [
+    {
+      "name": "lawskills",
+      "source": "./",
+      "description": "Compliancedocumenten opstellen en toetsen via aanklikbare formulieren, op basis van wettekst en gangbare marktvoorwaarden (Nederlands en Europees recht)."
+    }
+  ]
+}
