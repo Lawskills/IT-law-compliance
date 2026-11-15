@@ -1309,37 +1309,36 @@ def optie_label(vraag_sleutel, optie):
 
 # ---------- formulier: alle vragen in één keer ----------
 
-# Zelfde kleuren als de site zoals je ze ziet (effen, zonder verloop): sitegrijs #e4e6e8 en widgetgrijs #4e5259, twee accenten: geel = voldoet / klaar,
-# blauw = voldoet niet / nog te doen (en hover). Geen groen of rood. --g-out/--g-out2 zijn de tekstkleuren buiten de kaarten.
-GLAS_TOKENS = ("--g-bg:#e4e6e8;"
-               "--g-card:#4e5259;--g-line:rgba(255,255,255,.16);--g-ink:#f5f5f7;"
-               "--g-mute:rgba(245,245,247,.62);--g-hint:rgba(245,245,247,.86);--g-yes:#FFFF00;--g-no:#48CAE4;--g-out:#0d1117;--g-out2:#3e464f;"
+# Kleuren van de site, effen (geen verloop, geen doorzichtige varianten van de accenten): één leisteengrijs widget (#4e5259) met witte tekst,
+# zonder lichte achtergrond eromheen. Twee accenten met vaste betekenis: geel = voldoet / klaar / gekozen, blauw = voldoet niet / nog te doen
+# (ook voor hover en focus: altijd precies dit blauw). Geen groen of rood. Onderdelen staan in dezelfde kaart, gescheiden door lijnen of als vlak.
+GLAS_TOKENS = ("--g-bg:#4e5259;--g-tile:rgba(255,255,255,.06);--g-field:rgba(255,255,255,.08);--g-line:rgba(255,255,255,.16);--g-ink:#f5f5f7;"
+               "--g-mute:rgba(245,245,247,.62);--g-hint:rgba(245,245,247,.86);--g-yes:#FFFF00;--g-no:#48CAE4;--g-on-yes:#0b0b0b;--g-on-no:#04222b;"
                "--g-sh:0 10px 30px rgba(13,17,23,.18),inset 0 1px 0 rgba(255,255,255,.08);"
                "--g-font:Geist,system-ui,sans-serif")
 
 FORM_CSS = """<style>
-.kf{""" + GLAS_TOKENS + """;position:relative;font:15px/1.45 var(--g-font);letter-spacing:-.006em;color:var(--g-out);padding:20px 16px 32px;border-radius:24px;background:var(--g-bg)}
-.kf *{box-sizing:border-box}.kf h2{font-size:22px;font-weight:600;letter-spacing:-.04em;margin:0 0 4px}.kf .sub{color:var(--g-out2);font-size:13.5px;margin:0 0 14px;max-width:62ch}
-.kf .c,.kf .bar{background:var(--g-card);color:var(--g-ink);border:1px solid var(--g-line);border-radius:20px;box-shadow:var(--g-sh)}
-.kf .c{padding:16px 18px;margin:0 0 12px}.kf h3{font-size:13px;font-weight:500;margin:0 0 4px;color:var(--g-hint)}
+.kf{""" + GLAS_TOKENS + """;position:relative;font:15px/1.45 var(--g-font);letter-spacing:-.006em;color:var(--g-ink);padding:22px 22px 38px;border-radius:24px;background:var(--g-bg);border:1px solid var(--g-line);box-shadow:var(--g-sh)}
+.kf *{box-sizing:border-box}.kf h2{font-size:22px;font-weight:600;letter-spacing:-.04em;margin:0 0 4px}.kf .sub{color:var(--g-hint);font-size:13.5px;margin:0 0 6px;max-width:62ch}
+.kf .cs>.c+.c{margin-top:8px;padding-top:12px;border-top:1px solid var(--g-line)}.kf h3{font-size:13px;font-weight:500;margin:0 0 4px;color:var(--g-hint)}
 .kf .q{padding:14px 0;border-top:1px solid var(--g-line)}.kf .q:first-of-type{border-top:0}.kf [hidden]{display:none!important}
 .kf .v{font-weight:600;line-height:1.4}.kf .v::before{content:"";display:inline-block;width:9px;height:9px;margin-right:8px;border-radius:50%;border:1.5px solid var(--g-mute);vertical-align:1px}
 .kf .r{margin-left:8px;color:var(--g-no);font-size:12.5px;font-weight:600;white-space:nowrap}
 .kf .d .v::before{background:var(--g-yes);border-color:var(--g-yes)}.kf .m .v::before{border-color:var(--g-no)}.kf .h{color:var(--g-hint);font-size:12.5px;margin:4px 0 0}
 .kf .o,.kf textarea,.kf input[type=number]{margin-top:12px}
 .kf .o{display:flex;flex-wrap:wrap;gap:8px}.kf .o label{cursor:pointer}.kf .o input{position:absolute;opacity:0}
-.kf .o span{display:inline-block;padding:7px 15px;border-radius:999px;border:1px solid var(--g-line);background:rgba(255,255,255,.08);font-size:13.5px;transition:background .18s,color .18s,border-color .18s}
-.kf .o label:hover span{background:var(--g-no);color:#04222b;border-color:var(--g-no)}
-.kf .o input:checked+span{background:var(--g-yes);color:#0b0b0b;border-color:var(--g-yes);font-weight:600}
+.kf .o span{display:inline-block;padding:7px 15px;border-radius:999px;border:1px solid var(--g-line);background:var(--g-field);font-size:13.5px;transition:background .18s,color .18s,border-color .18s}
+.kf .o label:hover span{background:var(--g-no);color:var(--g-on-no);border-color:var(--g-no)}
+.kf .o input:checked+span{background:var(--g-yes);color:var(--g-on-yes);border-color:var(--g-yes);font-weight:600}
 .kf .o input:focus-visible+span{box-shadow:0 0 0 2px var(--g-no)}
-.kf textarea,.kf input[type=number]{display:block;width:100%;border-radius:14px;border:1px solid var(--g-line);background:rgba(13,17,23,.30);color:var(--g-ink);padding:10px 12px;font:inherit;outline:0;resize:vertical;transition:border-color .18s,box-shadow .18s}
+.kf textarea,.kf input[type=number]{display:block;width:100%;border-radius:14px;border:1px solid var(--g-line);background:var(--g-field);color:var(--g-ink);padding:10px 12px;font:inherit;outline:0;resize:vertical;transition:border-color .18s,box-shadow .18s}
 .kf textarea:focus,.kf input[type=number]:focus{border-color:var(--g-no);box-shadow:inset 0 0 0 1px var(--g-no)}
 .kf button:focus-visible{outline:0;box-shadow:0 0 0 2px var(--g-no)}
-.kf .bar{display:flex;gap:12px;align-items:center;flex-wrap:wrap;border-radius:999px;padding:6px 6px 6px 18px}.kf .pill{font-size:13px;font-weight:500}
-.kf .pb{flex:1;min-width:60px;height:7px;border-radius:4px;background:rgba(72,202,228,.45);overflow:hidden}.kf .pb i{display:block;height:100%;width:0;background:var(--g-yes);border-radius:4px;transition:width .25s}
-.kf button{height:42px;border:0;border-radius:999px;padding:0 22px;background:rgba(255,255,255,.14);color:var(--g-ink);font:inherit;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.kf button.y{background:var(--g-yes);color:#0b0b0b}
-.kf button:hover:not([disabled]){background:var(--g-no);color:#04222b}.kf button[disabled]{opacity:.45;cursor:not-allowed}
-.kf .warn{color:var(--g-no);font-size:13px;font-weight:600}.kf .tm{position:absolute;right:18px;bottom:9px;font-size:10.5px;letter-spacing:.02em;color:var(--g-out2);opacity:.75;pointer-events:none}
+.kf .bar{display:flex;gap:14px;align-items:center;flex-wrap:wrap;margin-top:14px;padding-top:16px;border-top:1px solid var(--g-line)}.kf .pill{font-size:13px;font-weight:500}
+.kf .pb{flex:1;min-width:60px;height:8px;border-radius:4px;background:var(--g-no);overflow:hidden}.kf .pb i{display:block;height:100%;width:0;background:var(--g-yes);border-radius:4px;transition:width .25s}
+.kf button{height:42px;border:0;border-radius:999px;padding:0 22px;background:rgba(255,255,255,.14);color:var(--g-ink);font:inherit;font-weight:600;cursor:pointer;transition:background .18s,color .18s}.kf button.y{background:var(--g-yes);color:var(--g-on-yes)}
+.kf button:hover:not([disabled]){background:var(--g-no);color:var(--g-on-no)}.kf button[disabled]{opacity:.45;cursor:not-allowed}
+.kf .warn{color:var(--g-no);font-size:13px;font-weight:600}.kf .tm{position:absolute;right:22px;bottom:12px;font-size:10.5px;letter-spacing:.02em;color:var(--g-mute);pointer-events:none}
 </style>"""
 
 # Evaluator in JavaScript, gelijk aan evaluate() hierboven (drie-waardenlogica); een test vergelijkt ze.

@@ -122,8 +122,6 @@ html[data-sel=nl] .taal button[data-l=nl],html[data-sel=en] .taal button[data-l=
 .leg i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
 .vier{display:grid;grid-template-columns:1fr;gap:0}
 .omlaag{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);color:var(--sub);text-decoration:none;font-size:16px}
-.st{display:inline-flex;width:22px;height:22px;border-radius:50%;align-items:center;justify-content:center;font:700 12px/1 var(--mono);flex:none}
-.st.j{background:var(--geel);color:#0b0b0b}.st.b{background:var(--blauw);color:#04222b}.st.o{border:1px solid currentColor}.st.n{border:1px dashed currentColor;opacity:.75}
 /* ---------- scherm 2 en 3: wit ---------- */
 .kop{font:600 clamp(30px,min(4vw,6.2vh),50px)/1.04 var(--sans);letter-spacing:-.045em;margin:0 0 10px}
 .lead{font-size:clamp(14.5px,2vh,17px);color:var(--sub);max-width:62ch;margin:0 0 clamp(18px,3.4vh,32px)}
@@ -133,7 +131,8 @@ html[data-sel=nl] .taal button[data-l=nl],html[data-sel=en] .taal button[data-l=
 .cijfer:first-of-type{border-top:0}
 .cijfer b{font:600 26px/1 var(--sans);letter-spacing:-.04em;min-width:66px;color:var(--geel)}
 .cijfer span{font-size:13.5px;color:rgba(245,245,247,.8)}
-.uit{display:flex;align-items:center;gap:10px;padding:4px 0;font-size:14px}
+.start .mono{font-size:18px;font-weight:600;padding:12px 40px 12px 12px}
+.uitleg{margin:10px 0 0;font-size:13px;line-height:1.45;color:var(--gm)}
 .inst{display:grid;gap:4px;font-size:13px;color:var(--gm)}
 .inst .mono{font-size:12px;background:rgba(0,0,0,.35);color:var(--gi);padding:7px 10px;border-radius:8px;word-break:break-all;margin-bottom:8px}
 .balk{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:clamp(14px,2.6vh,24px)}

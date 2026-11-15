@@ -361,27 +361,28 @@ def text(M):
 # ---------- uitvoer: widgets (HTML-fragment) ----------
 COL = {"Privacy": "#FFFF00", "Informatiebeveiliging": "#48CAE4", "AI & cyber": "#e8ecf5", "Contracten": "#aab2c2", "Overig": "#7a8294", "Totaal": "#ffffff"}
 DASH = {"Privacy": "", "Informatiebeveiliging": "6 3", "AI & cyber": "2 3", "Contracten": "10 4", "Overig": "1 4"}
-# Zelfde look als de site (lichtgrijs met leisteen-glaskaarten); geel (#FFFF00) = voldoet/klaar, blauw (#48CAE4) = voldoet niet/nog te doen.
+# Kleuren van de site, effen (geen verloop, geen doorzichtige varianten van de accenten): één leisteengrijs widget (#4e5259) met witte tekst,
+# zonder lichte achtergrond eromheen. Twee accenten met vaste betekenis: geel = voldoet / klaar / gekozen, blauw = voldoet niet / nog te doen
+# (ook voor hover en focus: altijd precies dit blauw). Geen groen of rood. Onderdelen staan in dezelfde kaart, gescheiden door lijnen of als vlak.
 # Geen groen of rood. Dezelfde tokens als het formulier in kader.py (een test bewaakt dat ze gelijk blijven).
-GLAS_TOKENS = ("--g-bg:#e4e6e8;"
-               "--g-card:#4e5259;--g-line:rgba(255,255,255,.16);--g-ink:#f5f5f7;"
-               "--g-mute:rgba(245,245,247,.62);--g-hint:rgba(245,245,247,.86);--g-yes:#FFFF00;--g-no:#48CAE4;--g-out:#0d1117;--g-out2:#3e464f;"
+GLAS_TOKENS = ("--g-bg:#4e5259;--g-tile:rgba(255,255,255,.06);--g-field:rgba(255,255,255,.08);--g-line:rgba(255,255,255,.16);--g-ink:#f5f5f7;"
+               "--g-mute:rgba(245,245,247,.62);--g-hint:rgba(245,245,247,.86);--g-yes:#FFFF00;--g-no:#48CAE4;--g-on-yes:#0b0b0b;--g-on-no:#04222b;"
                "--g-sh:0 10px 30px rgba(13,17,23,.18),inset 0 1px 0 rgba(255,255,255,.08);"
                "--g-font:Geist,system-ui,sans-serif")
 CSS = """
 <style>
-.cmp{""" + GLAS_TOKENS + """;position:relative;font:14px/1.45 var(--g-font);letter-spacing:-.006em;color:var(--g-ink);padding:16px 16px 34px;border-radius:24px;background:var(--g-bg)}
+.cmp{""" + GLAS_TOKENS + """;position:relative;font:14px/1.45 var(--g-font);letter-spacing:-.006em;color:var(--g-ink);padding:18px 18px 38px;border-radius:24px;background:var(--g-bg);border:1px solid var(--g-line);box-shadow:var(--g-sh)}
 .cmp *{box-sizing:border-box}.cmp h1{font-size:22px;font-weight:600;letter-spacing:-.04em;margin:0;color:var(--g-ink)}.cmp h2{font-size:13px;margin:0 0 8px;color:var(--g-mute);font-weight:500}
 .cmp .sub{color:var(--g-mute);font-size:12px}
-.cmp .card,.cmp .hero{background:var(--g-card);border:1px solid var(--g-line);border-radius:20px;padding:14px 16px;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);box-shadow:var(--g-sh)}
+.cmp .card,.cmp .hero{background:var(--g-tile);border-radius:16px;padding:14px 16px}
 .cmp .hero{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-bottom:12px}
 .cmp .grid{display:grid;gap:12px}.cmp .g4{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}.cmp .g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));margin-top:12px}
-.cmp .big{font-size:30px;font-weight:600;letter-spacing:-.04em;line-height:1.1;color:var(--g-yes)}.cmp .bar{height:7px;border-radius:4px;background:rgba(72,202,228,.45);margin:8px 0 6px;overflow:hidden}.cmp .bar i{display:block;height:100%;border-radius:4px}
+.cmp .big{font-size:30px;font-weight:600;letter-spacing:-.04em;line-height:1.1;color:var(--g-yes)}.cmp .bar{height:7px;border-radius:4px;background:var(--g-no);margin:8px 0 6px;overflow:hidden}.cmp .bar i{display:block;height:100%;border-radius:4px}
 .cmp .pill{display:inline-block;border-radius:999px;padding:3px 12px;background:var(--g-yes);color:#0b0b0b;font-weight:600;font-size:12.5px;margin-top:6px}
 .cmp table{color:inherit;font:inherit;width:100%;border-collapse:collapse;font-size:13px}.cmp td,.cmp th{padding:6px 4px;text-align:left;border-bottom:1px solid var(--g-line);vertical-align:top}.cmp th{color:var(--g-mute);font-weight:500;font-size:11.5px}
 .cmp ul,.cmp ol{margin:0;padding-left:18px}.cmp li{margin:3px 0}.cmp .tag{display:inline-block;padding:0 6px;border-radius:8px;border:1px solid currentColor;font-size:11px}
 .cmp .late{color:var(--g-no);font-weight:700;text-decoration:underline}.cmp .empty{color:var(--g-mute);font-style:italic}.cmp .leg{display:flex;gap:12px;flex-wrap:wrap;font-size:12px;margin-top:6px}.cmp .leg svg{vertical-align:middle;margin-right:4px}
-.cmp .big.n{color:var(--g-no)}.cmp .pill.n{background:var(--g-no);color:#04222b}.cmp .note{margin-top:12px;font-size:11px;color:var(--g-out2)}.cmp .tm{position:absolute;right:18px;bottom:9px;font-size:10.5px;letter-spacing:.02em;color:var(--g-out2);opacity:.75;pointer-events:none}
+.cmp .big.n{color:var(--g-no)}.cmp .pill.n{background:var(--g-no);color:#04222b}.cmp .note{margin-top:12px;font-size:11px;color:var(--g-mute)}.cmp .tm{position:absolute;right:22px;bottom:12px;font-size:10.5px;letter-spacing:.02em;color:var(--g-mute);pointer-events:none}
 </style>"""
 
 
@@ -392,7 +393,7 @@ def ring(p, size=84):
     r = 34; c = 2 * 3.14159265 * r
     off = c * (1 - (p or 0) / 100)
     return (f'<svg width="{size}" height="{size}" viewBox="0 0 84 84" role="img" aria-label="Voortgang totaal {fmt(p)}">'
-            f'<circle cx="42" cy="42" r="{r}" fill="none" stroke="rgba(72,202,228,.55)" stroke-width="9"/>'
+            f'<circle cx="42" cy="42" r="{r}" fill="none" stroke="var(--g-no)" stroke-width="9"/>'
             + (f'<circle cx="42" cy="42" r="{r}" fill="none" stroke="#FFFF00" stroke-width="9" stroke-linecap="round" stroke-dasharray="{c:.1f}" stroke-dashoffset="{off:.1f}" transform="rotate(-90 42 42)"/>' if p else '')
             + f'<text x="42" y="47" text-anchor="middle" font-size="16" font-weight="700" fill="#f5f5f7">{fmt(p)}</text></svg>')
 
